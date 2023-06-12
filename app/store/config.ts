@@ -32,7 +32,7 @@ export const DEFAULT_CONFIG = {
   modelConfig: {
     model: "gpt-3.5-turbo" as ModelType,
     temperature: 0.5,
-    max_tokens: 2000,
+    max_tokens: 4000,
     presence_penalty: 0,
     sendMemory: true,
     historyMessageCount: 4,
@@ -49,7 +49,8 @@ export type ChatConfigStore = ChatConfig & {
 
 export type ModelConfig = ChatConfig["modelConfig"];
 
-const ENABLE_GPT4 = true;
+//todo enable gpt4 here
+const ENABLE_GPT4 = false;
 
 export const ALL_MODELS = [
   {

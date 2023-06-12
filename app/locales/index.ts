@@ -67,7 +67,7 @@ function setItem(key: string, value: string) {
 
 function getLanguage() {
   try {
-    return navigator.language.toLowerCase();
+    return "cn";
   } catch {
     console.log("[Lang] failed to detect user lang.");
     return DEFAULT_LANG;

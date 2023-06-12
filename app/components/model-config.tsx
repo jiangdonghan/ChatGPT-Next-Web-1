@@ -4,6 +4,10 @@ import Locale from "../locales";
 import { InputRange } from "./input-range";
 import { List, ListItem, Select } from "./ui-lib";
 
+const modelNameMap: any = {
+  "gpt-3.5-turbo": "GPT-3.5",
+  "gpt-4": "GPT-4(正在接入中)",
+};
 export function ModelConfigList(props: {
   modelConfig: ModelConfig;
   updateConfig: (updater: (config: ModelConfig) => void) => void;
@@ -22,9 +26,9 @@ export function ModelConfigList(props: {
             );
           }}
         >
-          {ALL_MODELS.map((v) => (
+          {ALL_MODELS.filter((model) => !!modelNameMap[model.name]).map((v) => (
             <option value={v.name} key={v.name} disabled={!v.available}>
-              {v.name}
+              {modelNameMap[v.name]}
             </option>
           ))}
         </Select>
@@ -48,25 +52,25 @@ export function ModelConfigList(props: {
           }}
         ></InputRange>
       </ListItem>
-      <ListItem
-        title={Locale.Settings.MaxTokens.Title}
-        subTitle={Locale.Settings.MaxTokens.SubTitle}
-      >
-        <input
-          type="number"
-          min={100}
-          max={32000}
-          value={props.modelConfig.max_tokens}
-          onChange={(e) =>
-            props.updateConfig(
-              (config) =>
-                (config.max_tokens = ModalConfigValidator.max_tokens(
-                  e.currentTarget.valueAsNumber,
-                )),
-            )
-          }
-        ></input>
-      </ListItem>
+      {/*<ListItem*/}
+      {/*  title={Locale.Settings.MaxTokens.Title}*/}
+      {/*  subTitle={Locale.Settings.MaxTokens.SubTitle}*/}
+      {/*>*/}
+      {/*  <input*/}
+      {/*    type="number"*/}
+      {/*    min={100}*/}
+      {/*    max={32000}*/}
+      {/*    value={props.modelConfig.max_tokens}*/}
+      {/*    onChange={(e) =>*/}
+      {/*      props.updateConfig(*/}
+      {/*        (config) =>*/}
+      {/*          (config.max_tokens = ModalConfigValidator.max_tokens(*/}
+      {/*            e.currentTarget.valueAsNumber,*/}
+      {/*          )),*/}
+      {/*      )*/}
+      {/*    }*/}
+      {/*  ></input>*/}
+      {/*</ListItem>*/}
       <ListItem
         title={Locale.Settings.PresencePenalty.Title}
         subTitle={Locale.Settings.PresencePenalty.SubTitle}

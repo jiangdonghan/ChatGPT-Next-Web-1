@@ -4,11 +4,11 @@ const cn = {
   WIP: "该功能仍在开发中……",
   Error: {
     Unauthorized:
-      "访问密码不正确或为空，请前往[登录](/#/auth)页输入正确的访问密码，或者在[设置](/#/settings)页填入你自己的 OpenAI API Key。",
+      "访问密码不正确或为空，请前往[登录](/#/auth)页输入正确的访问密码",
   },
   Auth: {
     Title: "需要密码",
-    Tips: "管理员开启了密码验证，请在下方填入访问码",
+    Tips: "管理员开启了密码验证，请在下方填入访问码。如有问题请联系管理员",
     Input: "在此处填写访问码",
     Confirm: "确认",
     Later: "稍后再说",
@@ -164,20 +164,20 @@ const cn = {
     },
     AccessCode: {
       Title: "访问密码",
-      SubTitle: "管理员已开启加密访问",
+      SubTitle: "请联系管理员",
       Placeholder: "请输入访问密码",
     },
-    Model: "模型 (model)",
+    Model: "模型",
     Temperature: {
-      Title: "随机性 (temperature)",
+      Title: "随机性",
       SubTitle: "值越大，回复越随机",
     },
     MaxTokens: {
-      Title: "单次回复限制 (max_tokens)",
+      Title: "单次回复限制",
       SubTitle: "单次交互所用的最大 Token 数",
     },
     PresencePenalty: {
-      Title: "话题新鲜度 (presence_penalty)",
+      Title: "话题新鲜度",
       SubTitle: "值越大，越有可能扩展到新话题",
     },
   },
