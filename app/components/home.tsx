@@ -2,7 +2,7 @@
 
 require("../polyfill");
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 
 import styles from "./home.module.scss";
 
@@ -123,7 +123,9 @@ function Screen() {
     >
       {isAuth ? (
         <>
-          <AuthPage />
+          <Suspense fallback={<div></div>}>
+            <AuthPage />
+          </Suspense>
         </>
       ) : (
         <>
