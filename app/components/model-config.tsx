@@ -6,7 +6,6 @@ import { List, ListItem, Select } from "./ui-lib";
 
 const modelNameMap: any = {
   "gpt-3.5-turbo": "GPT-3.5",
-  "gpt-4": "GPT-4(正在接入中)",
 };
 export function ModelConfigList(props: {
   modelConfig: ModelConfig;

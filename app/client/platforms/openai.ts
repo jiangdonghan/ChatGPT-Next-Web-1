@@ -48,6 +48,12 @@ export class ChatGPTApi implements LLMApi {
       presence_penalty: modelConfig.presence_penalty,
     };
 
+    if (!modelConfig.model.includes("3.5")) {
+      // return 400
+      return options.onError?.(
+        new Error("Do not use GPT4 It is too expensive"),
+      );
+    }
     console.log("[Request] openai payload: ", requestPayload);
 
     const shouldStream = !!options.config.stream;
