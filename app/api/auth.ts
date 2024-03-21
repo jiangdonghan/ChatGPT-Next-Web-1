@@ -47,6 +47,13 @@ export async function auth(req: NextRequest) {
 
   const hashedCode = md5.hash(accessCode ?? "").trim();
 
+  if (!accessCode) {
+    return {
+      error: true,
+      msg: "please login first",
+    };
+  }
+
   const serverConfig = getServerSideConfig();
   console.log("[Auth] allowed hashed codes: ", [...serverConfig.codes]);
   console.log("[Auth] got access code:", accessCode);
@@ -58,6 +65,7 @@ export async function auth(req: NextRequest) {
     let resData = { items: [] };
     try {
       resData = await fetchAccessCodeData(accessCode);
+      console.log("resData", resData);
     } catch (e) {
       console.log(e);
       resData = { items: [] };
